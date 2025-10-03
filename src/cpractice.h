@@ -1,6 +1,6 @@
 /**
- * Student Name:
- * Semester:
+ * Student Name:Karina Quenta
+ * Semester:Fall 2025
  * 
  * C Practice
  * This assignment is to help you practice using C. Is is setup to
@@ -46,7 +46,9 @@ typedef struct {
  * of the variables in the calling function. 
 **/
 void swap(int *a, int *b){
-
+    int c = *a;
+    *a = *b;
+    *b = c;
 }
 
 /**

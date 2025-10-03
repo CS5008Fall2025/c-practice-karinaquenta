@@ -1,6 +1,6 @@
 /**
- * Student Name:
- * Semester:
+ * Student Name:Karina Quenta
+ * Semester:Fall 2025
  * 
  * 
  * This file is to test the functions in cpractice.h. You are to write at least *TWO* (maybe more) tests for every function. 
@@ -31,6 +31,36 @@ int test_swap_one() {
     int b = 10;
     swap(&a, &b);
     if (a == 10 && b == 5) {
+        return 1;
+    }
+    return 0;
+}
+
+/**
+ * ADDED SWAP TEST - Tests if the function swaps a negative number with a positive number
+*/
+
+int test_swap_two(){
+    printf("2.test_swap_two()\n");
+    int a= -3;
+    int b= 9;
+    swap(&a, &b);
+    if (a == 5 && b==5){
+        return 1;
+    }
+    return 0;
+}
+
+/**
+ * ADDED SWAP TEST - Tests if both numbers are the same and still works
+*/
+
+int test_swap_three(){
+    printf("3.test_swap_three()\n");
+    int a = 7;
+    int b = 7;
+    swap(&a, &b);
+    if (a==5 && b==5){
         return 1;
     }
     return 0;
