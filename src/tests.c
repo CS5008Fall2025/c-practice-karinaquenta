@@ -84,14 +84,46 @@ int test_create_array_of_ints_fib() {
     return 1;
 }
 
+/**
+ * ADDED CREAT ARRAY OF INTS FIB TEST - Tests if the size is 0, NULL should be Output
+*/
+int test_create_array_of_ints_fib_two() {
+    printf("2. test_create_array_of_ints_fib_two()\n");
+    int* arr = create_array_of_ints_fib_two(0);
 
+    if (arr!= NULL){
+        free(arr);
+        return 0; //means failed
+    }
+    return 1; //means passed
+}
+/**
+ * ADDED CREAT ARRAY OF INTS FIB TEST - Tests if the size of 1 works, Outputshould be [1] for passing test
+*/
+int test_create_array_of_ints_fib_three() {
+    printf("3. test_create_array_of_ints_fib_three()\n");
+    int* arr = creaate_array_of_ints_fib_three(1);
+    int expectedOutput[] = {1};
 
+    if (arr == NULL || arr[0] != expectedOutput[0]){
+        free(arr);
+        return 0;
+    }
+
+    free(arr);
+    return 1;
+} 
 
 
 // this is a list of all the unit tests
 int (*unitTests[])() = {
         test_swap_one,
+        test_swap_two,
+        test_swap_three,
         test_create_array_of_ints_fib,
+        test_create_array_of_ints_fib_two,
+        test_create_array_of_ints_fib_three,
+
         // add more test function names here
 };
 

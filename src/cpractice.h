@@ -90,9 +90,26 @@ void print_array(int *arr, int size)
  * here is a quick list of numbers: https://www.math.net/list-of-fibonacci-numbers
  **/
 int* create_array_of_ints_fib(int size){
+    if(size <=0){
     return NULL;
 }
 
+int *arr= malloc(sizeof(int)*size);
+if (arr==NULL){
+    return NULL;
+}
+
+//fib base case
+arr[0]= 1;
+if (size>1){
+    arr[1] =1;
+}
+
+for (int i=2; i<size; i++){
+    arr[i] = arr[i-1] + arr[i-2];
+}
+return arr;
+}
 /**
  * Reverses an array *in place* (meaning you don't copy into another array)
  * 
@@ -103,7 +120,11 @@ int* create_array_of_ints_fib(int size){
  * Consider using swap. 
 */
 void reverse_array(int *arr, int size){
-    
+    for (int i=0; i < size/2; i++){
+        int temp=arr[i];
+        swap(&arr[i],&arr[size -1 -i]);
+
+    }
 }
 
 
@@ -117,9 +138,21 @@ void reverse_array(int *arr, int size){
  * 
 */
 int* double_array_size(int *arr, int size){
+    if(arr== NULL || size <= 0){
     return NULL;
 }
+int new_size = size *2;
 
+int *new_arr =(int *)calloc(new_size,sizeof(int));
+if(new_arr==NULL){
+    printf("memory allocation has failed\n");
+    return NULL;
+}
+for(int i=0;i<size;i++){
+    new_arr[i]=arr[i];
+}
+return new_arr;
+}
 /**
  * Copies elements of an array from start to end (inclusive) into a new array.
  *

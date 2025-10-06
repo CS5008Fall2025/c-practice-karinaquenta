@@ -49,7 +49,7 @@ As a guideline, here are steps to compile your code via the command line. Even i
    * Reminder, you can use `cd` to change directories, and `ls` to list the files in the current directory.
 2. To compile run:
    * `gcc -Wall tests.c -o test.out` - and then to run your tests, run `./test.out`.
-   * `gcc -Wall main.c -o main.out` - and then to run your program, run `./main.out`. 
+   * `gcc -Wall main.c -o main.out` - and then to run your program, run `./main.out`.
 
 
 > [!IMPORTANT]  
@@ -58,7 +58,7 @@ As a guideline, here are steps to compile your code via the command line. Even i
 #### :star: Compile Frequently :star:  
 It is very easy to have a small error in your code (missing a semicolon), and then have a ton of errors when you compile. It is best to compile frequently, so you can catch these errors early. Often professional developers will compile after every 'chunk' (often 3-4 lines) of code they write. This is a good habit to get into. While the code may not be fully working, it helps you catch errors early. This is also why you should test every function *as you write them*. 
 
-### Report.md 
+### Report.md
 You will notice there are questions in your [readme.md](../README.md) and [Report.md](../Report.md) file. You will want to answer these questions. For this course, we will be doing a lot with Markdown files, so it is important to get used to them. You may even want to review the [Markdown Guide](https://guides.github.com/features/mastering-markdown/) to get a better understanding of how to format your readme.md file.
 
 Every assignment will have to fill out both a README.md and Report.md, so make sure you review them!
