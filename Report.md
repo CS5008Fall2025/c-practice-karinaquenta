@@ -3,7 +3,8 @@
 Completely answer the report questions below. Make sure to double check the final version to make sure it is easily readable on your github repository.
 
 
-1. What is the difference between a standard numeric type (int, float, double) and a pointer? <br/> How I understand it is a regular type like int, float, or double is just used to hold actual numbers, like 5 or 3.14. It’s pretty straightforward becasue you store a value, and that’s it. But a pointer is a little different. Instead of holding the number itself, it holds the address of where that number is saved in your computer’s memory. So it’s like the pointer is saying, “hey, the value is over there!” rather than keeping the value itself. At first it feels kinda confusing, but I understand.
+1. What is the difference between a standard numeric type (int, float, double) and a pointer? <br/> 
+- How I understand it is a regular type like int, float, or double is just used to hold actual numbers, like 5 or 3.14. It’s pretty straightforward becasue you store a value, and that’s it. But a pointer is a little different. Instead of holding the number itself, it holds the address of where that number is saved in your computer’s memory. So it’s like the pointer is saying, “hey, the value is over there!” rather than keeping the value itself. At first it feels kinda confusing, but I understand.
    
 2. In your test file, we had the following code:
     
@@ -11,9 +12,11 @@ Completely answer the report questions below. Make sure to double check the fina
     int* arr = create_array_of_ints_fib(5);
     int expected[] = {1, 1, 2, 3, 5};
     ```
-    Later in the code we only `free(arr)` but not expected. Why is this? What is the difference in where they are stored in memory? <br/> So the reason we only do free(arr) and not free(expected) is because they live in different places in memory. The arr variable was created using malloc, which means we have to clean up ourselves using free. But expected was just made normally inside the function, so it lives on the stack, and the program takes care of cleaning that up automatically when the function ends. So if we tried to free(expected), it would actually be wrong and could crash the program. Basically, heap memory needs our help to clean up, stack memory doesn’t becasue the program handles it for us.
+    Later in the code we only `free(arr)` but not expected. Why is this? What is the difference in where they are stored in memory? <br/> 
+    - So the reason we only do free(arr) and not free(expected) is because they live in different places in memory. The arr variable was created using malloc, which means we have to clean up ourselves using free. But expected was just made normally inside the function, so it lives on the stack, and the program takes care of cleaning that up automatically when the function ends. So if we tried to free(expected), it would actually be wrong and could crash the program. Basically, heap memory needs our help to clean up, stack memory doesn’t becasue the program handles it for us.
 
-3. What is the difference between the heap and stack when related to memory allocation and management? <br/> So the way I understand it, the stack and the heap are two different places where our program stores stuff in memory. The stack is used for things like local variables which is organized & fast, and the computer automatically takes care of cleaning it up when the function is done. We don’t have to do anything. But the heap is different becasue when we use functions like malloc, we’re asking the computer to give us memory from the heap, and now it’s our job to manage it. That means we need to call free when we’re done, or else we’ll have a memory leak. So basically, the stack is automatic, and the heap is manual.
+3. What is the difference between the heap and stack when related to memory allocation and management? <br/> 
+- So the way I understand it, the stack and the heap are two different places where our program stores stuff in memory. The stack is used for things like local variables which is organized & fast, and the computer automatically takes care of cleaning it up when the function is done. We don’t have to do anything. But the heap is different becasue when we use functions like malloc, we’re asking the computer to give us memory from the heap, and now it’s our job to manage it. That means we need to call free when we’re done, or else we’ll have a memory leak. So basically, the stack is automatic, and the heap is manual.
 
 4. Take the following code:
    ```c
@@ -35,13 +38,17 @@ Completely answer the report questions below. Make sure to double check the fina
       return 0;
    }
    ```
-   Would the code run correctly? Even if it does compile, what would be some potential runtime issues? After answering your thoughts, put the output of a run below (you may need to run it a few times). <br/>Yes it does compile, some potential runtime issues is that the function returns a pointer to a local variable that no longer exists once the function ends.Which means it can be buggy, sometimes it’ll print the right values, other times it’ll show random numbers, or it might even crash <br/>
+   Would the code run correctly? Even if it does compile, what would be some potential runtime issues? After answering your thoughts, put the output of a run below (you may need to run it a few times). <br/>
+   - Yes it does compile, some potential runtime issues is that the function returns a pointer to a local variable that no longer exists once the function ends.Which means it can be buggy, sometimes it’ll print the right values, other times it’ll show random numbers, or it might even crash <br/>
    ```c
    x: 10, y: 10
    x: -5373, y: 32767
    ```
 
    Fix the code in the following block:
+   <br/>
+   - Fixed code below:
+   <br/>
    ```c
    #include <stdio.h>
    #include <stdlib.h>
@@ -67,9 +74,12 @@ Completely answer the report questions below. Make sure to double check the fina
    }
    ```
 
-5. When you use `malloc`, where are you storing the information? <br/> - We are storing the information on the heap.
+5. When you use `malloc`, where are you storing the information? <br/> 
 
-6. Speaking about `malloc` and `calloc`, what is the difference between the two (you may need to research it!)? <br/> So the difference is that malloc just grabs a chunk of memory for you, but it doesn’t clean it up the values. On the other hand, calloc not only gives you the memory, it also sets everything to zero, nice and clean. calloc takes two numbers (how many items and the size of each), while malloc just takes one (the total size). So if I want my memory to start fresh with zeros, I’d go with calloc.
+- We are storing the information on the heap.
+
+6. Speaking about `malloc` and `calloc`, what is the difference between the two (you may need to research it!)? <br/> 
+- So the difference is that malloc just grabs a chunk of memory for you, but it doesn’t clean it up the values. On the other hand, calloc not only gives you the memory, it also sets everything to zero, nice and clean. calloc takes two numbers (how many items and the size of each), while malloc just takes one (the total size). So if I want my memory to start fresh with zeros, I’d go with calloc.
 
 7. What are some common built in libraries used for C, list at least 3 and explain each one in your own words. Name a few (at least 3) functions in those libraries (hint: we used two of the most common ones in this assignment. There are many resources online that tell you functions in each library - you need to include at least 1 reference, but ideally for every library, you should have a reference to it)?
    - Example: stdlib.h - provides functions for general-purpose operations including
@@ -78,23 +88,24 @@ Completely answer the report questions below. Make sure to double check the fina
      - void * calloc(size_t num_elements, size_t element_size) - contiguous allocation for allocating arrays with the default value of 0. Slower than malloc. 
      - int rand(void) - returns a random integer between 0 and RAND_MAX. Seed should be set before hand. 
      <br/>
-1. stdio.h – This one is for input and output, like printing to the screen or reading from the user [1]
+   1. stdio.h – This one is for input and output, like printing to the screen or reading from the user [1]
       * printf(const char *format, …) – prints text/variables to the screen
       * scanf(const char *format, ...); – reads input from the user and stores it in variables
       * getchar(void); – reads a single character from the keyboard
    
-2. string.h – This library helps you work with strings (text) and arrays of characters [2]
+   2. string.h – This library helps you work with strings (text) and arrays of characters [2]
       * size_t strlen(const char *str); – returns the length of a string
       * *strcpy(char *dest,const char *src); – copies one string into another.
       * strcmp(const char *str1, const char *str2); – comparing two strings and tells you if they’re the same
  
-3. math.h – This one is for doing more advanced math operations (beyond basic ones like +, -, *, /) [3]
+   3. math.h – This one is for doing more advanced math operations (beyond basic ones like +, -, *, /) [3]
       * double sqrt(double x); – returns the square root of a number.
       * double pow(double base, double exponent); – raises a number to a power (like pow(2, 3) = 8).
       * double sin(double x); – returns the sine of an angle (the angle must be in radians).
  
 
-8. Looking at the struct Point and Polygon, we have a mix of values on the heap, and we make ample use of pointers. Take a moment to draw out how you think that looks after `create_triangle(2,3)` is called (see an example below). The important part of the drawing it to see that not everything is stored together in memory, but in different locations! Store the image file in your github repo and link it here. You can use any program to draw it such as [drawIO](https://app.diagrams.net/), or even draw it by hand and take a picture of it. <br/> did not get a chance to complete this
+8. Looking at the struct Point and Polygon, we have a mix of values on the heap, and we make ample use of pointers. Take a moment to draw out how you think that looks after `create_triangle(2,3)` is called (see an example below). The important part of the drawing it to see that not everything is stored together in memory, but in different locations! Store the image file in your github repo and link it here. You can use any program to draw it such as [drawIO](https://app.diagrams.net/), or even draw it by hand and take a picture of it. <br/> 
+- did not get a chance to complete this
 
 
 ## Technical Interview Practice Questions
@@ -102,9 +113,11 @@ For both these questions, are you are free to use what you did as the last secti
 
 1. Select one technical interview question (this module or previous) from the [technical interview list](https://github.com/CS5008-khoury/Resources/blob/main/TechInterviewQuestions.md) below and answer it in a few sentences. You can use any resource you like to answer the question.
 <br/>
-- Question from C, the Heap, and Executables Technical Interview Question: <br/> What is a header (.h) file and how does it differ from a source file? Why do we use header files?
+- Question from C, the Heap, and Executables Technical Interview document:
 <br/>
--My response <br/>
+**What is a header (.h) file and how does it differ from a source file? Why do we use header files?**
+<br/>
+**My response** <br/>
 <br/>
 - A header (.h) declares the interface (info like functions, type def,and variants) to let the other files like .c files know what exists in the code. .c files houses the implementation of the functions. We use the headers to separate the interface and implementation.
 
