@@ -78,17 +78,17 @@ Completely answer the report questions below. Make sure to double check the fina
      - void * calloc(size_t num_elements, size_t element_size) - contiguous allocation for allocating arrays with the default value of 0. Slower than malloc. 
      - int rand(void) - returns a random integer between 0 and RAND_MAX. Seed should be set before hand. 
      <br/>
-   1. stdio.h – This one is for input and output, like printing to the screen or reading from the user [1]
+1. stdio.h – This one is for input and output, like printing to the screen or reading from the user [1]
       * printf(const char *format, …) – prints text/variables to the screen
       * scanf(const char *format, ...); – reads input from the user and stores it in variables
       * getchar(void); – reads a single character from the keyboard
    
-   2. string.h – This library helps you work with strings (text) and arrays of characters [2]
+2. string.h – This library helps you work with strings (text) and arrays of characters [2]
       * size_t strlen(const char *str); – returns the length of a string
       * *strcpy(char *dest,const char *src); – copies one string into another.
       * strcmp(const char *str1, const char *str2); – comparing two strings and tells you if they’re the same
  
-   3. math.h – This one is for doing more advanced math operations (beyond basic ones like +, -, *, /) [3]
+3. math.h – This one is for doing more advanced math operations (beyond basic ones like +, -, *, /) [3]
       * double sqrt(double x); – returns the square root of a number.
       * double pow(double base, double exponent); – raises a number to a power (like pow(2, 3) = 8).
       * double sin(double x); – returns the sine of an angle (the angle must be in radians).
@@ -101,21 +101,22 @@ Completely answer the report questions below. Make sure to double check the fina
 For both these questions, are you are free to use what you did as the last section on the team activities/answered as a group, or you can use a different question.
 
 1. Select one technical interview question (this module or previous) from the [technical interview list](https://github.com/CS5008-khoury/Resources/blob/main/TechInterviewQuestions.md) below and answer it in a few sentences. You can use any resource you like to answer the question.
-
-**Q**Question from C, the Heap, and Executables Technical Interview Question: <br/> What is a header (.h) file and how does it differ from a source file? Why do we use header files?
 <br/>
-**A**
-A header (.h) declares the interface (info like functions, type def,and variants) to let the other files like .c files know what exists in the code. .c files houses the implementation of the functions. We use the headers to separate the interface and implementation.
+- Question from C, the Heap, and Executables Technical Interview Question: <br/> What is a header (.h) file and how does it differ from a source file? Why do we use header files?
+<br/>
+-My response <br/>
+<br/>
+- A header (.h) declares the interface (info like functions, type def,and variants) to let the other files like .c files know what exists in the code. .c files houses the implementation of the functions. We use the headers to separate the interface and implementation.
 
 2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
-
+<br/>
 - Completed and discussed Leetcode problem 905. Sort Array By Parity in Lab.
 
 ## Deeper Thinking
 In Java and Python, do you think new objects are stored on the stack or the heap? Feel free to work through your thoughts as to why it would be better to store them on the stack or heap. You should consider pass by reference, and how that is similar to pointer in your answer. Feel free to use resources, but make sure to cite them, and include the citation below using ACM format. You will note LLMs are not valid references, but they can give you directions to valid references. Make sure to use your own words. 
 
 <br/>
-Yes, both Java and Python put new objects on the heap, but not the stack. The stack is more used for local variables and return addresses, whereas, the heap has objects and arrays that are global variables. In 'The Java Virtual Machine' documentation, explains that objects and arrays are allocated from the heap, while method calls use per-thread stacks for frames and local variables[4]. In Java's documentation "Java Tutorials" states that 'Java is always a pass-by-value', sayin that objects, are references (like an address), so when passing to a method, its passing a copy of a reference. Inside the method you change the local copy via the reference. [5] With working with C, this sounds like passing a pointer by value with a different syntax. Now for Python, Python objects are all in a private heap and the objects stay on the heap. In Python's documentation, "Python Software Foundation," argument passing is described as pass by assignment" so the function gets a reference to the same object , but that reference itself is passed by value.[6] This works becasue mutating an object inside the function is visble for the caller while rebinding the parameter name doesnt affect the caller [7].
+- Yes, both Java and Python put new objects on the heap, but not the stack. The stack is more used for local variables and return addresses, whereas, the heap has objects and arrays that are global variables. In 'The Java Virtual Machine' documentation, explains that objects and arrays are allocated from the heap, while method calls use per-thread stacks for frames and local variables[4]. In Java's documentation "Java Tutorials" states that 'Java is always a pass-by-value', sayin that objects, are references (like an address), so when passing to a method, its passing a copy of a reference. Inside the method you change the local copy via the reference. [5] With working with C, this sounds like passing a pointer by value with a different syntax. Now for Python, Python objects are all in a private heap and the objects stay on the heap. In Python's documentation, "Python Software Foundation," argument passing is described as pass by assignment" so the function gets a reference to the same object , but that reference itself is passed by value.[6] This works becasue mutating an object inside the function is visble for the caller while rebinding the parameter name doesnt affect the caller [7].
 
 
 ## References
