@@ -49,6 +49,7 @@ Completely answer the report questions below. Make sure to double check the fina
    <br/>
    - Fixed code below:
    <br/>
+   
    ```c
    #include <stdio.h>
    #include <stdlib.h>
@@ -114,12 +115,12 @@ For both these questions, are you are free to use what you did as the last secti
 1. Select one technical interview question (this module or previous) from the [technical interview list](https://github.com/CS5008-khoury/Resources/blob/main/TechInterviewQuestions.md) below and answer it in a few sentences. You can use any resource you like to answer the question.
 <br/>
 - Question from C, the Heap, and Executables Technical Interview document:
-<br/>
+
 **What is a header (.h) file and how does it differ from a source file? Why do we use header files?**
+
 <br/>
-**My response** <br/>
-<br/>
-- A header (.h) declares the interface (info like functions, type def,and variants) to let the other files like .c files know what exists in the code. .c files houses the implementation of the functions. We use the headers to separate the interface and implementation.
+
+- My response: A header (.h) declares the interface (info like functions, type def,and variants) to let the other files like .c files know what exists in the code. .c files houses the implementation of the functions. We use the headers to separate the interface and implementation.
 
 2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
 <br/>
