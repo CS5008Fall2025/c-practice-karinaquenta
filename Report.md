@@ -3,7 +3,7 @@
 Completely answer the report questions below. Make sure to double check the final version to make sure it is easily readable on your github repository.
 
 
-1. What is the difference between a standard numeric type (int, float, double) and a pointer? How I understand it is a regular type like int, float, or double is just used to hold actual numbers, like 5 or 3.14. It’s pretty straightforward becasue you store a value, and that’s it. But a pointer is a little different. Instead of holding the number itself, it holds the address of where that number is saved in your computer’s memory. So it’s like the pointer is saying, “hey, the value is over there!” rather than keeping the value itself. At first it feels kinda confusing, but I understand.
+1. What is the difference between a standard numeric type (int, float, double) and a pointer? <br/> How I understand it is a regular type like int, float, or double is just used to hold actual numbers, like 5 or 3.14. It’s pretty straightforward becasue you store a value, and that’s it. But a pointer is a little different. Instead of holding the number itself, it holds the address of where that number is saved in your computer’s memory. So it’s like the pointer is saying, “hey, the value is over there!” rather than keeping the value itself. At first it feels kinda confusing, but I understand.
    
 2. In your test file, we had the following code:
     
