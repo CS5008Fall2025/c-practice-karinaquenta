@@ -113,7 +113,33 @@ int test_create_array_of_ints_fib_three() {
     free(arr);
     return 1;
 } 
+//Added CREATE CREATE POINT TESTS-this tests if the x and y values are getting correctly assigned , making sure create_point returns a non-NULL ptr or
 
+int create_point_test_one(){
+    printf("running test_create_point_one\n");
+    //defining inputs
+    int x=5;
+    int y=10;
+    //callling the function
+    Point* p=create_point(x,y);
+
+    if(p == NULL){
+        printf("create_ppoint failed, return null\n");
+        return 0;
+    }
+
+    if (p->x != x || p->y != y){
+        printf("create_point failed,expected (%d, %d), but got (%d, %d)\n");
+        free(p);
+        return 0;
+    }
+
+    printf("create_point passed, point has been created corrected, as expected: (%d, %d)\n");
+
+    free(p);
+    //passed the test
+    return 1; 
+}
 
 // this is a list of all the unit tests
 int (*unitTests[])() = {

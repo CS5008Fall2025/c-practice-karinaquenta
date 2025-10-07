@@ -184,14 +184,27 @@ int* copy_array_start_end_loop(int *arr, int size, int start, int end, int *new_
 /* 
 Practice with struts 
 */
+typedef struct{
+    int x;
+    int y;
+}Point;
 
 /**
  * Creates a point with the given x and y values. Allocates it on the heap. (malloc)
  * and returns the new point
 */
 Point* create_point(int x, int y){
-    return NULL;
+    Point* p=malloc(sizeof(Point));
+    if (p==NULL){
+        printf("Memory allocation failed.\n");
+        return NULL;
+    }
+    p->x=x;
+    p->y=y;
+    return p;
+    
 }
+
 
 /**
  * Creates a polygon with the given size. Allocates it on the heap. (malloc)
@@ -201,7 +214,24 @@ Point* create_point(int x, int y){
  * the point values. it is just a polygon of eventual size, and an array of empty points. 
 */
 Polygon* create_polygon(int size){
+    Polygon* poly = malloc(sizeof(Polygon));
+    if (poly == NULL) {
+        printf("Memory allocation for Polygon has failed\n");
     return NULL;
+    }
+    poly->size = size;
+
+    poly->points = malloc(size * sizeof(Point*));
+    if (poly->points == NULL) {
+        printf("Memory allocation for points array failed!\n");
+        free(poly);
+        return NULL;
+    for (int i = 0; i < size; i++) {
+        poly->points[i] = NULL;
+    }
+    return poly;
+}
+
 }
 
 
@@ -210,7 +240,19 @@ Polygon* create_polygon(int size){
  * all the points, to free them, free the array, and then free the polygon itself.
 */
 void free_polygon(Polygon *p){
-    
+    if (p == NULL) {
+    return;
+    }
+
+    if (p->points != NULL){
+        for (int i=1; i<p->size; i++){
+            if(p->points[i] != NULL){
+                free(p->points[i]);
+            }
+        }
+        free(p->points);
+    }
+    free(p);
 }
 
 /**
