@@ -37,41 +37,44 @@ int test_swap_one() {
 }
 
 /**
- * ADDED SWAP TEST - Tests if the function swaps a negative number with a positive number
+ * ADDED SWAP TEST - swap a negative with a positive
 */
 
-int test_swap_two(){
+int test_swap_two(void){
     printf("2.test_swap_two()\n");
     int a= -3;
     int b= 9;
     swap(&a, &b);
-    if (a == 5 && b==5){
+    if (a == 5 && b== -5){
         return 1;
     }
     return 0;
 }
 
 /**
- * ADDED SWAP TEST - Tests if both numbers are the same and still works
+ * ADDED SWAP TEST - swapping equal numbers should keep them equal
 */
 
-int test_swap_three(){
+int test_swap_three(void){
     printf("3.test_swap_three()\n");
     int a = 7;
     int b = 7;
     swap(&a, &b);
-    if (a==5 && b==5){
+    if (a == 7 && b == 7){
         return 1;
     }
     return 0;
 }
 
 /**
- * Tests the create_array_of_ints_fib function
+ * ADDED - Tests the create_array_of_ints_fib function (size 5)
 */
-int test_create_array_of_ints_fib() {
-    printf("2. test_create_array_of_ints_fib()\n");
+int test_create_array_of_ints_fib(void) {
+    printf("4. test_create_array_of_ints_fib()\n");
     int* arr = create_array_of_ints_fib(5);
+    if (arr == NULL) {
+        return 0;
+    }
     int expected[] = {1, 1, 2, 3, 5};
     for (int i = 0; i < 5; i++) {
         if (arr[i] != expected[i]) {
@@ -79,40 +82,38 @@ int test_create_array_of_ints_fib() {
             return 0;
         }
     }
-    free(arr); // note expected does not need freed.. why is that?
-    // everything matched
+    free(arr); // note: expected is on the stack; do not free it
     return 1;
 }
 
 /**
- * ADDED CREAT ARRAY OF INTS FIB TEST - Tests if the size is 0, NULL should be Output
+ * ADDED FIB TEST - size 0 should return NULL
 */
-int test_create_array_of_ints_fib_two() {
-    printf("2. test_create_array_of_ints_fib_two()\n");
-    int* arr = create_array_of_ints_fib_two(0);
-
-    if (arr!= NULL){
+int test_create_array_of_ints_fib_two(void) {
+    printf("5. test_create_array_of_ints_fib_two()\n");
+    int* arr = create_array_of_ints_fib(0);
+    if (arr != NULL) {
         free(arr);
-        return 0; //means failed
+        return 0; // failed
     }
-    return 1; //means passed
+    return 1; // passed
 }
 /**
- * ADDED CREAT ARRAY OF INTS FIB TEST - Tests if the size of 1 works, Outputshould be [1] for passing test
+ * ADDED ANOTHER FIB TEST - Tests if the size of 1 works, Outputshould be [1] for passing test
 */
-int test_create_array_of_ints_fib_three() {
-    printf("3. test_create_array_of_ints_fib_three()\n");
-    int* arr = creaate_array_of_ints_fib_three(1);
-    int expectedOutput[] = {1};
-
-    if (arr == NULL || arr[0] != expectedOutput[0]){
+int test_create_array_of_ints_fib_three(void) {
+    printf("6. test_create_array_of_ints_fib_three()\n");
+    int* arr = create_array_of_ints_fib(1);
+    if (arr == NULL) {
+        return 0;
+    }
+    if (arr[0] != 1) {
         free(arr);
         return 0;
     }
-
     free(arr);
     return 1;
-} 
+}
 //Added CREATE CREATE POINT TESTS-this tests if the x and y values are getting correctly assigned , making sure create_point returns a non-NULL ptr or
 
 int create_point_test_one(){
@@ -149,6 +150,7 @@ int (*unitTests[])() = {
         test_create_array_of_ints_fib,
         test_create_array_of_ints_fib_two,
         test_create_array_of_ints_fib_three,
+        create_point_test_one,
 
         // add more test function names here
 };
@@ -162,7 +164,7 @@ int main(int argc, char const *argv[])
         if (unitTests[i]()) {
             numPassed++;
         } else {
-            printf("Test %d failed\n", i);
+            printf("Test %d failed\n");
         }
     }
 

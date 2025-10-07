@@ -49,7 +49,7 @@ Completely answer the report questions below. Make sure to double check the fina
    <br/>
    - Fixed code below:
    <br/>
-   
+
    ```c
    #include <stdio.h>
    #include <stdlib.h>
@@ -117,17 +117,17 @@ For both these questions, are you are free to use what you did as the last secti
 - Question from C, the Heap, and Executables Technical Interview document:
 
 **What is a header (.h) file and how does it differ from a source file? Why do we use header files?**
-
 <br/>
 
-- My response: A header (.h) declares the interface (info like functions, type def,and variants) to let the other files like .c files know what exists in the code. .c files houses the implementation of the functions. We use the headers to separate the interface and implementation.
+- A header (.h) declares the interface (info like functions, type def,and variants) to let the other files like .c files know what exists in the code. .c files houses the implementation of the functions. We use the headers to separate the interface and implementation.
 
 2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
 <br/>
+
 - Completed and discussed Leetcode problem 905. Sort Array By Parity in Lab.
 
 ## Deeper Thinking
-In Java and Python, do you think new objects are stored on the stack or the heap? Feel free to work through your thoughts as to why it would be better to store them on the stack or heap. You should consider pass by reference, and how that is similar to pointer in your answer. Feel free to use resources, but make sure to cite them, and include the citation below using ACM format. You will note LLMs are not valid references, but they can give you directions to valid references. Make sure to use your own words. 
+In Java and Python, do you think new objects are stored on the stack or the heap? Feel free to work through your thoughts as to why it would be better to store them on the stack or heap. You should consider pass by reference, and how that is similar to pointer in your answer. Feel free to use resources, but make sure to cite them, and include the citation below using ACM format. You will note LLMs are not valid references, but they can give you directions to valid references. Make sure to use your own words.
 
 <br/>
 - Yes, both Java and Python put new objects on the heap, but not the stack. The stack is more used for local variables and return addresses, whereas, the heap has objects and arrays that are global variables. In 'The Java Virtual Machine' documentation, explains that objects and arrays are allocated from the heap, while method calls use per-thread stacks for frames and local variables[4]. In Java's documentation "Java Tutorials" states that 'Java is always a pass-by-value', sayin that objects, are references (like an address), so when passing to a method, its passing a copy of a reference. Inside the method you change the local copy via the reference. [5] With working with C, this sounds like passing a pointer by value with a different syntax. Now for Python, Python objects are all in a private heap and the objects stay on the heap. In Python's documentation, "Python Software Foundation," argument passing is described as pass by assignment" so the function gets a reference to the same object , but that reference itself is passed by value.[6] This works becasue mutating an object inside the function is visble for the caller while rebinding the parameter name doesnt affect the caller [7].
