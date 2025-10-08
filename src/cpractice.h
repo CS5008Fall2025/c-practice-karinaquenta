@@ -121,9 +121,7 @@ return arr;
 */
 void reverse_array(int *arr, int size){
     for (int i=0; i < size/2; i++){
-        int temp=arr[i];
         swap(&arr[i],&arr[size -1 -i]);
-
     }
 }
 
@@ -177,10 +175,11 @@ return new_arr;
  * Make sure to test this function, this is probably the hardest of the batch, and easy
  * to get an OB1 error!
  */
+/* 
 int* copy_array_start_end_loop(int *arr, int size, int start, int end, int *new_size) {
     return NULL;
 }
-
+*/
 /* 
 Practice with struts 
 */
@@ -223,7 +222,7 @@ Polygon* create_polygon(int size){
 
     poly->points = malloc(size * sizeof(Point*));
     if (poly->points == NULL) {
-        printf("Memory allocation for points array failed!\n");
+        printf("Memory allocation for points array failed\n");
         free(poly);
         return NULL;
     for (int i = 0; i < size; i++) {
@@ -264,9 +263,9 @@ void free_polygon(Polygon *p){
  * width, height
  * 0, height
 */
-Polygon* create_rectangle(int width, int height){
-    return NULL;
-}
+//Polygon* create_rectangle(int width, int height){
+//    return NULL;
+//}
 
 
 /**
@@ -277,9 +276,9 @@ Polygon* create_rectangle(int width, int height){
  * width, 0
  * width, height
 */
-Polygon* create_triangle(int width, int height){
-    return NULL;
-}
+//Polygon* create_triangle(int width, int height){
+//    return NULL;
+//}
 
 /**
  * Prints the point in the format "(x, y) "
@@ -311,9 +310,9 @@ void print_polygon(Polygon *p){
  * 
  * after area is summed across all points, divide by 2.0 and return the area.
 */
-double calculate_polygon_area(Polygon *p){
-    return 0.0;
-}
+//double calculate_polygon_area(Polygon *p){
+//    return 0.0;
+//}
 
 #endif // C_PRACTICE_H
 

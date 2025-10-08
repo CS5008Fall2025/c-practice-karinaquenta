@@ -130,12 +130,12 @@ int create_point_test_one(){
     }
 
     if (p->x != x || p->y != y){
-        printf("create_point failed,expected (%d, %d), but got (%d, %d)\n");
+        printf("create_point failed\n");
         free(p);
         return 0;
     }
 
-    printf("create_point passed, point has been created corrected, as expected: (%d, %d)\n");
+    printf("create_point passed, point has been created corrected\n");
 
     free(p);
     //passed the test
@@ -164,7 +164,7 @@ int main(int argc, char const *argv[])
         if (unitTests[i]()) {
             numPassed++;
         } else {
-            printf("Test %d failed\n");
+            printf("Test failed\n");
         }
     }
 
